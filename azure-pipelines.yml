@@ -26,6 +26,7 @@ steps:
    python -m pip install -U flask-restplus
    python -m pip uninstall -U Werkzeug
    python -m pip install -U --upgrade Werkzeug==0.16.1
+   python -m pip install -U SQLAlchemy
    python -m pytest tests --doctest-modules --junitxml=junit/test-results.xml
    
   displayName: RunTests
