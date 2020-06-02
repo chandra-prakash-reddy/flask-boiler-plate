@@ -16,8 +16,14 @@ strategy:
 
 steps:
 - script: |
+   python -m pip install -U pytest==5.4.2
+   python -m pip install -U pytest-cov==2.8.1
+   python -m pip install -U pytest-forked==1.1.3
+   python -m pip install -U pytest-xdist==1.32.0
    python -m pip install -U pip setuptools
    python -m pip install -U -r requirements.txt
+   python -m pip install -U flask
+   python -m pip install -U flask-restplus
    python -m pytest tests --doctest-modules --junitxml=junit/test-results.xml
    
   displayName: RunTests
