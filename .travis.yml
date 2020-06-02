@@ -7,14 +7,13 @@ language: python
 # Set the python version to 3.6
 python: 3.6
 
-# Install the codecov pip dependency
+before_install:
+  - python --version
+  - pip install -U pip
+  - pip install -U pytest
+  - pip install codecov
 install:
-  - pip install -r requirements.txt
-
-# Run the unit test
-script:
-  - py.test -v --cov=app --cov=common --cov-report xml --cov-report html
-
-# Push the results back to codecov
+  - pip install -r requirements.txt # install package + test dependencies
+script: pytest # run tests
 after_success:
-  - htmlcov
+  - codecov # submit
