@@ -1,0 +1,38 @@
+# Python package
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+strategy:
+  matrix:
+    Python37:
+      python.version: '3.7'
+
+steps:
+- script: |
+   pip install -r requirements.txt
+   pytest tests --doctest-modules --junitxml=junit/test-results.xml
+   
+  displayName: RunTests
+
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results'
+  inputs:
+    testResultsFiles: '**/junit/test-results.xml'
+
+- script: |
+   py.test -v --cov=publication --cov=common --cov-report xml --cov-report html
+   
+  displayName: CodeCoverage
+
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage from **/coverage.xml'
+  inputs:
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '**/coverage.xml'
+    reportDirectory: '**/htmlcov'
