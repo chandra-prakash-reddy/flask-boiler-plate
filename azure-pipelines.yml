@@ -22,7 +22,7 @@ steps:
    python3 -m pip install pytest-xdist==1.32.0
    python3 -m pip install -U pip setuptools
    python3 -m pip install -r requirements.txt
-   pytest tests --doctest-modules --junitxml=junit/test-results.xml
+   python3 -m pytest pytest tests --doctest-modules --junitxml=junit/test-results.xml
    
   displayName: RunTests
 
@@ -32,7 +32,7 @@ steps:
     testResultsFiles: '**/junit/test-results.xml'
 
 - script: |
-   py.test -v --cov=publication --cov=common --cov-report xml --cov-report html
+   python -m pytest -v --cov=publication --cov=common --cov-report xml --cov-report html
    
   displayName: CodeCoverage
 
