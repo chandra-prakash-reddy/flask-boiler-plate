@@ -17,7 +17,7 @@ strategy:
 steps:
 - script: |
    python -m pip install -U pip setuptools
-   python -m pip install -U  requirements.txt
+   python -m pip install -U -r requirements.txt
    python -m pytest tests --doctest-modules --junitxml=junit/test-results.xml
    
   displayName: RunTests
