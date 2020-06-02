@@ -1,5 +1,3 @@
 language: python
 sudo: false
-script: 
-  - pip install -r requirements.txt
-  - py.test -v
+script: pip install -r requirements.txt
