@@ -6,7 +6,7 @@ This project provides the production ready boiler plate  to start Rest Api devel
    * Install Python3
       * installation  : https://www.python.org/downloads
       * documentation : https://docs.python.org/3
-   * Maven
+   * Insall Pip
       * installation  : https://pip.pypa.io/en/stable/installing
       * documentation : https://pip.pypa.io/en/stable
    * Git 
