@@ -50,7 +50,7 @@ steps:
    python3 -m pip install -U --upgrade Werkzeug==0.16.1
    python3 -m pip install -U SQLAlchemy
    python3 -m pip install -U pyaes
-   python -m pytest -v --cov=publication --cov=common --cov-report xml --cov-report html
+   python3 -m pytest -v --cov=publication --cov=common --cov-report xml --cov-report html
    
   displayName: CodeCoverage
 
